@@ -2,6 +2,7 @@ const chai = require('chai');
 const should = chai.should();
 const Concat = require('../../second-session/concat');
 const Every = require('../../second-session/every');
+const Some = require('../../second-session/some');
 
 describe('Array Methods API tests', function() {
 	
@@ -16,12 +17,18 @@ describe('Array Methods API tests', function() {
 	});
 
   it('Every should return true only if all elements pass test', function(done) {
-   const oneString = Every.allPassTest([1, 2, 3, 4, 5, 'pizza']);
-   oneString.should.equal(false);
+    const oneString = Every.allPassTest([1, 2, 3, 4, 5, 'pizza']);
+    oneString.should.equal(false);
 
-   const allNumbers = Every.allPassTest([6, 7, 8, 9, 10]);
-   allNumbers.should.equal(true);
-   done();
+    const allNumbers = Every.allPassTest([6, 7, 8, 9, 10]);
+    allNumbers.should.equal(true);
+    done();
+  });
+
+  it('Some should return true if one element passes', function(done) {
+    const johnThere = Some.itExists(['bob', 'john', 'commando'], 'john');
+    johnThere.should.equal(true);
+    done();
   });
   
 });
