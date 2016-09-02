@@ -1,36 +1,36 @@
 // List of higher order functions to illustrate higher order functions.
 
-function stringFunc(param, fn) {
+function projector(param, fn) {
   return fn(param);
 }
 
 function toUpperCase(param) {
-  return stringFunc(function(param) {
+  return projector(param, function(param) {
     return String.prototype.toUpperCase.call(param);
   });
 }
 
 function toLowerCase(param) {
-  return stringFunc(function(param) {
+  return projector(param, function(param) {
     return String.prototype.toLowerCase.call(param);
   });
 }
 
-function exists(arr) {
-  return stringFunc(function(arr) {
-    return Array.prototype.indexOf.call(arr) > -1;
+function exists(param, arr) {
+  return projector(param, function(arr) {
+    return arr.indexOf(param) > -1;
   });
 }
 
 function mapIt(arr, fn) {
-  this.projectionArray = [];
+  var projectionArray = [];
   arr.forEach(function(elem) {
-    this.projectionArray.push(fn(elem));
+    projectionArray.push(fn(elem));
   });
-  return this.projectionArray;
+  return projectionArray;
 }
 
-exports.stringFunc = stringFunc;
+exports.projector = projector;
 exports.toUpperCase = toUpperCase;
 exports.toLowerCase = toLowerCase;
 exports.exists = exists;

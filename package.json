@@ -11,10 +11,11 @@
     "systemjs": "^0.19.31"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "mocha": "^3.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "mocha:tests": "mocha test/unit-tests"
   },
   "repository": {
     "type": "git",
