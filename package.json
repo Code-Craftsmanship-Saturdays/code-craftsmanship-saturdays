@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "requirejs": "^2.2.0",
+    "rimraf": "^2.5.4",
     "systemjs": "^0.19.31"
   },
   "devDependencies": {
@@ -15,6 +16,7 @@
     "mocha": "^3.0.2"
   },
   "scripts": {
+    "premocha:tests": "rimraf logs",
     "mocha:tests": "mocha test/unit-tests"
   },
   "repository": {
