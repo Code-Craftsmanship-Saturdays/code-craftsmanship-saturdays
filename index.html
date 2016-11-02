@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="reveal.css">
+        <link rel="stylesheet" href="zenburn.css">
+        <link rel="stylesheet" href="css/moon.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+					<h3>Schedule for Today</h3>
+					<p>Functional Programming Concepts</p>
+					<p>Currying, Partial Application, and Memoization.</p>
+				</section>
+        </div>
+		<script src="lib/head.min.js"></script>
+        <script src="reveal.js"></script>
+        <script>			
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'convex',                
+				dependencies: [
+					// Syntax highlight for <code> elements
+					{ 
+						src: 'plugins/highlight/highlight.js', 
+						async: true, 
+						callback: function() { 
+							hljs.initHighlightingOnLoad(); 
+						} 
+					}
+				]
+			});
+		</script>
+    </body>
+</html>

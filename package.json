@@ -1,0 +1,26 @@
+{
+  "name": "code-craftsmanship-saturdays",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:reveal": "gulp build"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "merge-stream": "^1.0.0",
+    "reveal.js": "^3.3.0",
+    "rimraf": "^2.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbelmont/code-craftsmanship-saturdays.git"
+  },
+  "author": "Jean-Marcel Belmont",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbelmont/code-craftsmanship-saturdays/issues"
+  },
+  "homepage": "https://github.com/jbelmont/code-craftsmanship-saturdays#readme"
+}
