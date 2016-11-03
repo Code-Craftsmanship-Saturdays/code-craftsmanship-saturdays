@@ -2,15 +2,33 @@
     <head>
         <link rel="stylesheet" href="reveal.css">
         <link rel="stylesheet" href="zenburn.css">
-        <link rel="stylesheet" href="css/moon.css">
+        <link rel="stylesheet" href="css/league.css">
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
                 <section>
-					<h3>Schedule for Today</h3>
-					<p>Functional Programming Concepts</p>
-					<p>Currying, Partial Application, and Memoization.</p>
+					<h4>Code Craftsmanship Saturdays Third Session</h4>
+					<p>Crafters today Jean-Marcel Belmont and Ryan Magoon</p>
+					<p>First topics are Currying, Partial Application, and Memoization.</p>
+					<p>Last topic will be Rx.js Observables and more</p>
+				</section>
+                <section>
+					<section>
+						<h4>So what does Currying even mean</h4>
+						<p>Wikipedia Brief Definition</p>
+						<p>In mathematics and computer science, currying is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument</p>
+					</section>
+					<section>
+						<h3>f = ( (x, y) ==> y / x )</h3>
+						<h3></h3>
+					</section>
+				</section>
+                <section>
+
+				</section>
+                <section>
+
 				</section>
         </div>
 		<script src="lib/head.min.js"></script>
@@ -21,15 +39,22 @@
 				progress: true,
 				history: true,
 				center: true,
-				transition: 'convex',                
+				transition: 'convex',    
+				math: {
+					mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+					config: 'TeX-AMS_HTML-full'
+				},            
 				dependencies: [
-					// Syntax highlight for <code> elements
 					{ 
 						src: 'plugins/highlight/highlight.js', 
 						async: true, 
 						callback: function() { 
 							hljs.initHighlightingOnLoad(); 
 						} 
+					},
+					{ 
+						src: 'plugins/math/math.js', 
+						async: true 
 					}
 				]
 			});
