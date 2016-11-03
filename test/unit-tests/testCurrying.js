@@ -1,6 +1,7 @@
 const chai = require('chai');
 const should = chai.should();
 const BasicCurry = require('../../third-session/basicCurry');
+const AdvancedCurry = require('../../third-session/advancedCurry');
 
 describe('Test All the Currying Functions', () => {
 	
@@ -58,6 +59,22 @@ describe('Test All the Currying Functions', () => {
         const city = state(config.city);
         const zipCode = city(config.zipCode);
         zipCode.should.equal(expected);
+        done();
+    });
+
+    it('curryItUp should sum up values', done => {
+        const {
+            counter,
+            curryItUp
+        } = AdvancedCurry;
+
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const otherNumbers = [11, 12, 13, 14, 15];
+        const expected = numbers.concat(otherNumbers).reduce((prev, curr) => prev + curr, 0);
+
+        const curryValues = curryItUp(counter, numbers);
+        const sumValues = curryValues(otherNumbers);
+        sumValues.should.equal(expected);
         done();
     });
   
