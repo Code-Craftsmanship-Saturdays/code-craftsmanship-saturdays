@@ -25,11 +25,14 @@ var curryItUp = function(fn, firstNumbers) {
 const counterES6 = (...numbers) => 
     numbers.reduce((prev, curr) => prev + curr, 0);
 
-const curryItUpES6 = (fn, ...firstNumbers) => (...secondNumbers) => {
-    return fn.apply(this, Array.prototype.concat.call(...firstNumbers, ...secondNumbers));
+const curryItUpES6 = (fn, ...firstNumbers) => 
+    (...secondNumbers) => {
+        return fn.apply(
+            this, 
+            Array.prototype.concat.call(...firstNumbers, ...secondNumbers)
+        );
 }
                     
-
 module.exports = {
     counter,
     curryItUp,
