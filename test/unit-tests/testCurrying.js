@@ -65,7 +65,9 @@ describe('Test All the Currying Functions', () => {
     it('curryItUp should sum up values', done => {
         const {
             counter,
-            curryItUp
+            curryItUp,
+            counterES6,
+            curryItUpES6
         } = AdvancedCurry;
 
         const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -75,6 +77,16 @@ describe('Test All the Currying Functions', () => {
         const curryValues = curryItUp(counter, numbers);
         const sumValues = curryValues(otherNumbers);
         sumValues.should.equal(expected);
+
+        const expectedValue = numbers.reduce((prev,curr) => prev + curr, 0);
+        
+        const curryWithNumbers = curryItUpES6(counterES6, 1, 2, 3, 4, 5);
+        const sumValuesWithNumbers = curryWithNumbers(6, 7, 8, 9, 10);
+        sumValuesWithNumbers.should.equal(expectedValue);
+
+        const curryWithArray = curryItUpES6(counterES6, numbers);
+        const sumValuesWithArray = curryWithArray(otherNumbers);
+        sumValuesWithArray.should.equal(expected);
         done();
     });
   
