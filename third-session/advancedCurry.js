@@ -7,15 +7,18 @@ var counter = function() {
     }, 0);
 }
 
-var curryItUp = function(fn) {
-    var args = Array.isArray(Array.prototype.slice.call(arguments, 1)) 
-                ? Array.prototype.slice.call(arguments, 1)[0]
-                : Array.prototype.slice.call(arguments, 1);
-    return function() {
-        var otherArgs = Array.isArray(Array.prototype.slice.call(arguments))
-                        ? Array.prototype.slice.call(arguments)[0]
-                        : Array.prototype.slice.call(arguments);
-        return fn.apply(this, args.concat(otherArgs));
+var curryItUp = function(fn, firstNumbers) {
+    let args;
+    if (!Array.isArray(firstNumbers)) {
+        args = Array.prototype.slice.call(arguments, 1);
+    }
+    return function(secondNumbers) {
+        let otherArgs;
+        if (!Array.isArray(secondNumbers)) {
+            otherArgs = Array.prototype.slice.call(arguments);
+            return fn.apply(this, Array.prototype.concat.call(args, otherArgs));
+        }
+        return fn.apply(this, Array.prototype.concat.call(firstNumbers, secondNumbers));
     }
 }
 
