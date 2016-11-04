@@ -80,7 +80,8 @@ curryWithES5("Marcel")("Staff Sergeant")
 						<h6>Second Exercise for Basic Currying.</h6>
 						<p>Write a curried function that has an arity of three</p>
 						$$ h_{x} = ((x,y,z) \mapsto f(x,y,z)) $$
-						<p>This means you will need to return a function three times.</p>
+						<p>This means you will need to return a function two times.</p>
+						<p>This is because the function declaration has a closure for the first value</p>
 						<p><strong>Correspondingly the function will need to invoked 3 times</strong></p>
 						<p>Sample message should be of the form: </p>
 						<p><strong>"state is North Carolina city is Raleigh zipCode is 27605"</strong></p>
@@ -111,6 +112,11 @@ deepCurryExample("North Carolina")("Raleigh")("27605")
 				</section>
 				<section>
 					<h6>Advanced Currying Exercise</h6>
+					<p>Write a Curried function that can compute the values of any number of values passed in.</p>
+					<p>Suggestion 1: Write a separate function that sums up any number of values as input and returns sum back.</p>
+					<p>Suggestion 2: Write another function that takes two parameters one being a callback function and another range of integer values.</p>
+					<p>It should return another function that takes in another range of values.</p>
+					<p>Then returns that function and another function</p>
 				</section>
         </div>
 		<script src="lib/head.min.js"></script>
