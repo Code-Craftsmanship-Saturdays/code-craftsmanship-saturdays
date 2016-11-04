@@ -111,12 +111,56 @@ deepCurryExample("North Carolina")("Raleigh")("27605")
 					</section>
 				</section>
 				<section>
-					<h6>Advanced Currying Exercise</h6>
-					<p>Write a Curried function that can compute the values of any number of values passed in.</p>
-					<p>Suggestion 1: Write a separate function that sums up any number of values as input and returns sum back.</p>
-					<p>Suggestion 2: Write another function that takes two parameters one being a callback function and another range of integer values.</p>
-					<p>It should return another function that takes in another range of values.</p>
-					<p>Then returns that function and another function</p>
+					<section>
+						<h6>Advanced Currying Exercise</h6>
+						<p>Write a Curried function that can compute the values of any number of values passed in.</p>
+						<p>Suggestion 1: Write a separate function that sums up any number of values as input and returns sum back.</p>
+						<p>Suggestion 2: Write another function that takes two parameters one being a callback function and another range of values.</p>
+						<p>It should return another function that takes in another range of values.</p>
+						<p>Then calls the callback function with range of values</p>
+					</section>
+					<section>
+						<h6>Solution to Advanced Currying Exercise</h6>
+						<p>Solution using ES5</p>
+						<pre>
+							<code data-trim class="javascript">
+var counter = function() {
+    var numbers = Array.prototype.slice.call(arguments);
+    return numbers.reduce(function(prev, curr) {
+        return prev + curr;
+    }, 0);
+}
+
+var curryItUp = function(fn, firstNumbers) {
+    let args;
+    if (!Array.isArray(firstNumbers)) {
+        args = Array.prototype.slice.call(arguments, 1);
+    }
+    return function(secondNumbers) {
+        let otherArgs;
+        if (!Array.isArray(secondNumbers)) {
+            otherArgs = Array.prototype.slice.call(arguments);
+            return fn.apply(this, Array.prototype.concat.call(args, otherArgs));
+        }
+        return fn.apply(this, Array.prototype.concat.call(firstNumbers, secondNumbers));
+    }
+}								
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h6>Solution using ES2015 syntax.</h6>
+						<pre>
+							<code data-trim class="javascript">
+const counterES6 = (...numbers) => 
+    numbers.reduce((prev, curr) => prev + curr, 0);
+
+const curryItUpES6 = (fn, ...firstNumbers) => (...secondNumbers) => {
+    return fn.apply(this, Array.prototype.concat.call(...firstNumbers, ...secondNumbers));
+}								
+							</code>
+						</pre>
+					</section>
 				</section>
         </div>
 		<script src="lib/head.min.js"></script>
