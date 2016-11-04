@@ -20,15 +20,97 @@
 						<p>In mathematics and computer science, currying is the technique of translating the evaluation of a function that takes multiple arguments (or a tuple of arguments) into evaluating a sequence of functions, each with a single argument</p>
 					</section>
 					<section>
-						<h3>f = ( (x, y) ==> y / x )</h3>
+						$\lambda$ (Lambda) Function. 
 						<h3></h3>
+						$$f = (x, y) \longrightarrow \frac{y}{x} $$
+						<p>Arity of 2 here because the function has 2 inputs x and y</p>
+					</section>
+					<section>
+						<h5>Example taken from Curry Article in Wikipedia</h5>
+						<p>Here is a function of four arguments (Arity of Four):</p>
+$$ f(x,y,z,w) $$
+<p>Through series of curried actions the function maps curried values from one function to another</p>
+$$ h_{x} = ((y,z,w) \mapsto f(x,y,z,w)) $$ 
+$$ x\mapsto y\mapsto z\mapsto w\mapsto f(x,y,z,w) $$ 
+$$ x\mapsto y\mapsto z\mapsto w\mapsto f(x,y,z,w) $$
+<p>Through 4 function mappings the output is achieved.</p>
+<p>Read https://en.wikipedia.org/wiki/Currying for more abstract details.</p>
 					</section>
 				</section>
                 <section>
+					<h5>Currying Code in action.</h5>
+					<pre>
+						<code data-trim class="javascript">
+var helloWorldExampleOfCurry = function(message) {
+	return function(name) {
+		console.log(message + " my name is " + name);
+	};
+};
 
+helloWorldExampleOfCurry("Hello there")("Marcel")
+// outputs "Hello there my name is Marcel"
+						</code>
+					</pre>
+					</section>
 				</section>
-                <section>
+				<section>
+					<section>
+						<h6>First Exercise of the day.</h6>
+						<p>Write a curried function that outputs a message.</p>
+						<p>name is Marcel and rank is Staff Sergeant</p>
+					</section>
+					<section>
+						<h6>Here is a solution in es5</h6>
+						<pre>
+							<code data-trim class="javascript">
+var curryWithES5 = function curryOneLevel(name) {
+	return function(rank) {
+		return 'name is ' + name + ' and rank is ' + rank;
+	}
+}
 
+curryWithES5("Marcel")("Staff Sergeant")
+// outputs "name is Marcel and rank is Staff Sergeant"
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h6>Second Exercise for Basic Currying.</h6>
+						<p>Write a curried function that has an arity of three</p>
+						$$ h_{x} = ((x,y,z) \mapsto f(x,y,z)) $$
+						<p>This means you will need to return a function three times.</p>
+						<p><strong>Correspondingly the function will need to invoked 3 times</strong></p>
+						<p>Sample message should be of the form: </p>
+						<p><strong>"state is North Carolina city is Raleigh zipCode is 27605"</strong></p>
+					</section>
+					<section>
+						<h6>Solution to Second Exercise</h6>
+						<pre>
+							<code data-trim class="javascript">
+// Solution in ES5
+var deepCurryExample = function curryTwoLevels(state) {
+    return function(city) {
+        return function (zipCode) {
+            return 'state is ' + state + ' city is ' 
+		+ city + ' zipCode is ' + zipCode;
+        }
+    }
+}
+// Solution in ES6
+const deepCurryWithES6 = state
+	=> city
+	=> zipCode 
+	=> `state is ${state} city is ${city} zipCode is ${zipCode}`;
+deepCurryExample("North Carolina")("Raleigh")("27605")
+// "state is North Carolina city is Raleigh zipCode is 27605"
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<h6>Advanced Currying Exercise</h6>
 				</section>
         </div>
 		<script src="lib/head.min.js"></script>
