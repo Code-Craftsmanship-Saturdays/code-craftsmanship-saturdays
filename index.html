@@ -169,6 +169,41 @@ const curryItUpES6 = (fn, ...firstNumbers) => (...secondNumbers) => {
 						</pre>
 					</section>
 				</section>
+				<section>
+					<section>
+						<h6>Partial Application in JavaScript</h6>
+						<p>Definition from Wikipedia</p>
+						<p>In computer science, partial application (or partial function application)
+						refers to the process of fixing a number of arguments to a function
+						producing another function of smaller arity</p>
+					</section>
+					<section>
+						<p>Partial application is thus the application of part of the arguments of a function, and getting in return a function that takes the remaining arguments</p>
+					</section>
+					<section>
+						<p>Mathematical representation of partial application in action.</p>
+						<p>$$ g(b,x) = f(2,b,x) = 2 * x + b $$</p>
+						<p>Here the function g has an arity of 2 and then maps to a function f which partially applies the arguments x and b.</p>
+					</section>
+					<section>
+						<p>Explanation in programmatic terms.</p>
+						<p>The partial application function will receive a callback function and a value</p>
+						<p>Then it can return another functioin that has another value but maps both values by applying one or more arguments.</p>
+					</section>
+					<section>
+						<h6>The previous problem was in effect partial application in action</h6>
+						<pre>
+							<code data-trim class="javascript">
+const partialApplication = (fn, ...args) =>
+(...otherArgs) => {
+	return fn.apply(this, 
+		Array.prototype.concat.call(...args, ...otherArgs)
+	);
+}							
+							</code>
+						</pre>
+					</section>
+				</section>
         </div>
 		<script src="lib/head.min.js"></script>
         <script src="reveal.js"></script>
