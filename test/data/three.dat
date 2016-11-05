@@ -1,7 +1,7 @@
 {
-    id: 'abcdef12345',
-    name: 'John J Rambo',
-    rank: 'Sergeant First Class',
-    enlistmentDate: 'January 1966',
-    dob: 'July 6, 1947'
+    "id": "abcdef12345",
+    "name": "John J Rambo",
+    "rank": "Sergeant First Class",
+    "enlistmentDate": "January 1966",
+    "dob": "July 6, 1947"
 }

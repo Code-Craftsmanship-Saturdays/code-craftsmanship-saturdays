@@ -2,6 +2,7 @@
 
 const chai = require('chai');
 const should = chai.should();
+
 const {
     join
 } = require('path');
@@ -11,7 +12,20 @@ const {
     averageNumberSets
 } = require('../../third-session/usagesForPartialApplication');
 
+const {
+    removeFile
+} = require('../../utils/removeFiles');
+
 describe('Test Usages of Partial Application', () => {
+
+    before(function() {
+        // removeFile([
+        //     '../test/data/soldier1.txt',
+        //     '../test/data/soldier2.txt',
+        //     '../test/data/soldier3.txt'
+        // ]);
+    });
+
 	it('prettyPrintContents should print out contents of dat files', done => {
         const datPath = 'test/data';
         const expectedNumLetter = 'One';
