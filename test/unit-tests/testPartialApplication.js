@@ -7,7 +7,8 @@ const {
 } = require('path');
 
 const {
-    printContents
+    printContents,
+    averageNumberSets
 } = require('../../third-session/usagesForPartialApplication');
 
 describe('Test Usages of Partial Application', () => {
@@ -37,4 +38,17 @@ describe('Test Usages of Partial Application', () => {
         });
     });
   
+    it('averageNumberSets should return an average for 2 or more sets', done => {
+        const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+            .reduce((prev,curr) => prev + curr, 0) 
+                / [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].length;
+
+        const numbers = [1, 2, 3, 4, 5];
+        const otherNumbers = [6, 7, 8, 9, 10];
+        const moreNumbers = [11, 12, 13, 14, 15];
+
+        const average = averageNumberSets(Array.prototype.concat.apply([], numbers.concat(otherNumbers, moreNumbers)));
+        average.should.equal(expected);
+        done();
+    });
 });

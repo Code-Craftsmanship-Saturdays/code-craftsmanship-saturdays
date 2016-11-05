@@ -47,4 +47,13 @@ function prettyPrintContents(joinDir) {
     });
 }
 
+function averageUp(...numbers) {
+    return numbers.reduce((prev, curr) => prev + curr, 0) / numbers.length;
+}
+
+function averageMultipleSets(args) {
+    return partialApply(averageUp, args)();
+}
+
+exports.averageNumberSets = averageMultipleSets;
 exports.printContents = prettyPrintContents;
