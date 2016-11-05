@@ -4,7 +4,8 @@
 *   and partially applies polyadic number of arguments. 
 */
 const partialApplication = (fn, ...args) =>
-    (...otherArgs) => 
-        fn.apply(this, Array.prototype.concat.call(args, otherArgs));
+    (...otherArgs) => {
+        return fn.apply(this, Array.prototype.concat.call(...args, ...otherArgs));
+    }
 
 exports.partialApply = partialApplication;
