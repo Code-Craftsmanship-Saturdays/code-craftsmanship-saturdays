@@ -204,6 +204,34 @@ const partialApplication = (fn, ...args) =>
 						</pre>
 					</section>
 				</section>
+				<section>
+					<section>
+						<h6>Using the partially applied function</h6> 
+						<p>Write a function that uses partial application and returns the average of one or more sets.</p>
+					</section>
+					<section>
+						<h6>Solution to Partial Application Problem.</h6>
+						<pre>
+							<code data-trim class="javascript">
+const partialApplication = (fn, ...args) =>
+(...otherArgs) => {
+	return fn.apply(this, 
+		Array.prototype.concat.call(...args, ...otherArgs)
+	);
+}	
+
+function averageUp(...numbers) {
+    return numbers.reduce((prev, curr) => prev + curr, 0) 
+		/ numbers.length;
+}
+
+function averageMultipleSets(args) {
+    return partialApply(averageUp, args)();
+}						
+							</code>
+						</pre>
+					</section>
+				</section>
         </div>
 		<script src="lib/head.min.js"></script>
         <script src="reveal.js"></script>
