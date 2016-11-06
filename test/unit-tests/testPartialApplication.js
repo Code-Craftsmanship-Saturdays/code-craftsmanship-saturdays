@@ -61,7 +61,7 @@ describe('Test Usages of Partial Application', () => {
         const otherNumbers = [6, 7, 8, 9, 10];
         const moreNumbers = [11, 12, 13, 14, 15];
 
-        const average = averageNumberSets(Array.prototype.concat.apply([], numbers.concat(otherNumbers, moreNumbers)));
+        const average = averageNumberSets(Array.prototype.concat.apply([], numbers.concat(otherNumbers, moreNumbers)))();
         average.should.equal(expected);
         done();
     });
